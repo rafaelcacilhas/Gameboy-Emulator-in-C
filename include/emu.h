@@ -2,12 +2,15 @@
 
 #include <common.h>
 
-typedef struct {
+typedef struct
+{
     bool paused;
     bool running;
     u64 ticks;
-} emu_context;
+} emulator_context;
 
-int emu_run(int argc, char **argv);
+int emulator_run(int argc, char **argv);
 
-emu_context *emu_get_context();
+emulator_context *get_emulator_context();
+
+void emulator_cycles(int cpu_cycles);
