@@ -10,6 +10,8 @@ void cpu_init()
 
 static void fetch_instruction() {
   context.current_opcode = bus_read(context.registers.pc++);
+  printf("Fetch Instruction \n" ); 
+  printf("%f\n", context.current_opcode); 
   context.current_instruction = instruction_by_opcode(context.current_opcode);
 
   if(context.current_instruction == NULL){
@@ -56,6 +58,8 @@ u16 cpu_read_register(register_type register){
 bool cpu_step()
 {
   if(!context.halted){
+
+  printf("Initializing step \n" ); 
     fetch_instruction();
     fetch_data();
     execute();
